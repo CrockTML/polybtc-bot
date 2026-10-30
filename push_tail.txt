@@ -1,17 +1,3 @@
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=98 -> catching up
-[push] pass 10:45:24 trades 98 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=100 -> catching up
-[push] pass 10:46:00 trades 100 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=100 -> catching up
-[push] pass 10:46:36 trades 100 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=100 -> catching up
 [push] pass 10:47:12 trades 100 hist 86
 [push] err ring <HTTPError 429: 'Too Many Requests'>
 [push] hist err 86 <HTTPError 429: 'Too Many Requests'>
@@ -298,3 +284,17 @@
 [push] pass 12:11:25 trades 134 hist 134 sent 134
 [push] pass 12:11:56 trades 134 hist 134 sent 134
 [push] pass 12:12:29 trades 135 hist 135 sent 135
+[push] pass 12:12:59 trades 135 hist 135 sent 135
+[push] pass 12:13:31 trades 135 hist 135 sent 135
+[push] pass 12:14:03 trades 135 hist 135 sent 135
+[push] pass 12:14:34 trades 135 hist 135 sent 135
+[push] pass 12:15:05 trades 135 hist 135 sent 135
+[push] pass 12:15:37 trades 136 hist 136 sent 136
+[push] pass 12:16:10 trades 136 hist 136 sent 136
+[push] pass 12:16:41 trades 136 hist 136 sent 136
+[push] pass 12:17:12 trades 136 hist 136 sent 136
+[push] pass 12:17:43 trades 136 hist 136 sent 136
+[push] pass 12:18:17 trades 136 hist 136 sent 136
+[push] pass 12:18:49 trades 136 hist 136 sent 136
+[push] pass 12:19:21 trades 136 hist 136 sent 136
+[push] pass 12:19:51 trades 136 hist 136 sent 136
