@@ -12,7 +12,7 @@ error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
-17:29:28 btc-updown-5m-1793381100 coinbase 77173 vs 77196 left=32s fairUp=0.171 Up=None Down=0.01 bal=52.01
+error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
