@@ -1,4 +1,9 @@
-pass 2026-10-30T14:36:26Z trades 29 sent 29 hist 29
+pass 2026-10-30T14:51:30Z trades 33 sent 33 hist 33
 14:35:16 set price TimeoutError('The read operation timed out')
 14:35:28 set price TimeoutError('The read operation timed out')
 14:35:40 set price TimeoutError('The read operation timed out')
+14:39:12 set tptr TimeoutError('The read operation timed out')
+14:39:24 set tptr TimeoutError('The read operation timed out')
+14:39:36 set tptr TimeoutError('The read operation timed out')
+14:43:15 set tptr TimeoutError('The read operation timed out')
+14:43:27 set tptr TimeoutError('The read operation timed out')
