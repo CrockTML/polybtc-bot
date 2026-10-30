@@ -92,9 +92,9 @@ error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
-error: HTTP Error 403: Forbidden
-error: HTTP Error 403: Forbidden
-error: HTTP Error 403: Forbidden
-error: HTTP Error 403: Forbidden
-error: HTTP Error 403: Forbidden
-error: HTTP Error 403: Forbidden
+18:10:28 btc-updown-5m-1793383800 coinbase 76976 vs 76972 left=272s fairUp=0.531 Up=0.54 Down=0.47 bal=52.01
+18:10:33 btc-updown-5m-1793383800 coinbase 76967 vs 76972 left=267s fairUp=0.464 Up=0.6 Down=0.41 bal=52.01
+18:10:38 btc-updown-5m-1793383800 coinbase 76995 vs 76972 left=262s fairUp=0.672 Up=0.67 Down=0.34 bal=52.01
+18:10:43 btc-updown-5m-1793383800 coinbase 76984 vs 76972 left=256s fairUp=0.590 Up=0.6 Down=0.41 bal=52.01
+18:10:49 btc-updown-5m-1793383800 coinbase 76990 vs 76972 left=251s fairUp=0.638 Up=0.65 Down=0.36 bal=52.01
+18:10:54 btc-updown-5m-1793383800 coinbase 76995 vs 76972 left=246s fairUp=0.678 Up=0.67 Down=0.34 bal=52.01
