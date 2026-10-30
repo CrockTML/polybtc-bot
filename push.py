@@ -26,22 +26,51 @@ def enc(t):
 def hist(L):
   for i,t in enumerate(L):
     if i in HD: continue
-    a,b=enc(t);mk(f"h{i:04d}",a);mk(f"g{i:04d}",b)
+    a,b=enc(t)
+    try: mk(f"h{i:04d}",a);mk(f"g{i:04d}",b)
+    except Exception as e: print("hist err",i,repr(e),flush=True); return
     HD.add(i);json.dump(sorted(HD),open(HF,"w"))
-sent=None;pp=getv("pptr");lastmin=0
+def step(name,f):
+  try: f(); return True
+  except Exception as e: print("err",name,repr(e),flush=True); return False
+sent=None;pp=getv("pptr");lastmin=0;lag=0
 while True:
-  try:
-    d=json.load(urllib.request.urlopen("http://localhost:8787/api/state",timeout=10))
-    oc=sum(o.get("cost",0) for o in d["open"]);settled=d["settled"];px=(d.get("last") or {}).get("price",0)
-    put("cash",round(d["cash"]*100));put("open",round(oc*100));put("pnl",round((d["cash"]+oc-d["start"])*100)+100000)
-    put("settled",settled);put("wins",round(d["win_rate"]*settled));put("price",round(px));put("upd",int(time.time()))
-    mi=int(time.time()//60)-M0
-    if px and mi!=lastmin:
-      put(f"p{pp%60:02d}",mi*2**24+round(px));pp+=1;put("pptr",pp);lastmin=mi
-    L=[json.loads(x) for x in open(os.path.join(HERE,"trades.jsonl")) if x.strip()]
-    start=max(0,len(L)-30) if sent is None else sent
-    for i in range(start,len(L)):
-      a,b=enc(L[i]);put(f"t{i%30:02d}",a);put(f"a{i%30:02d}",b)
-    hist(L);sent=len(L);put("tptr",sent);print("ok",time.strftime("%H:%M:%S"),flush=True)
-  except Exception as e: print("err",e,flush=True)
+  d=None
+  try: d=json.load(urllib.request.urlopen("http://localhost:8787/api/state",timeout=10))
+  except Exception as e: print("err state",repr(e),flush=True)
+  if d:
+    def counters():
+      global oc,px
+      oc=sum(o.get("cost",0) for o in d["open"]);settled=d["settled"];px=(d.get("last") or {}).get("price",0)
+      put("cash",round(d["cash"]*100));put("open",round(oc*100));put("pnl",round((d["cash"]+oc-d["start"])*100)+100000)
+      put("settled",settled);put("wins",round(d["win_rate"]*settled));put("price",round(px));put("upd",int(time.time()))
+    px=0;step("counters",counters)
+    def chart():
+      global pp,lastmin
+      mi=int(time.time()//60)-M0
+      if px and mi!=lastmin:
+        put(f"p{pp%60:02d}",mi*2**24+round(px));pp+=1;put("pptr",pp);lastmin=mi
+    step("chart",chart)
+  try: L=[json.loads(x) for x in open(os.path.join(HERE,"trades.jsonl")) if x.strip()]
+  except Exception as e: print("err trades",repr(e),flush=True); L=None
+  if L is not None:
+    def ring():
+      global sent
+      start=max(0,len(L)-30) if sent is None else sent
+      for i in range(start,len(L)):
+        a,b=enc(L[i]);put(f"t{i%30:02d}",a);put(f"a{i%30:02d}",b);sent=i+1
+      put("tptr",len(L))
+    step("ring",ring)
+    step("hist",lambda:hist(L))
+    def selfcheck():
+      global lag,sent
+      r=getv("tptr")
+      if r<len(L) or len(HD)<len(L):
+        lag+=1
+        if lag>=2:
+          print(f"!!! DASHBOARD LAG: tptr={r} hist={len(HD)} trades={len(L)} -> catching up",flush=True)
+          sent=max(0,min(sent or 0,r,len(L)-30) if r<len(L) else sent)
+      else: lag=0
+    step("selfcheck",selfcheck)
+  print("pass",time.strftime("%H:%M:%S"),"trades",len(L) if L else "?","hist",len(HD),flush=True)
   time.sleep(30)
