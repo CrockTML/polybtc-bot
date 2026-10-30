@@ -1,4 +1,21 @@
 {
- "balance": 47.3365,
- "open": {}
+ "balance": 42.6065,
+ "open": {
+  "btc-updown-5m-1793390100": {
+   "type": "entry",
+   "ts": 1793390139,
+   "slug": "btc-updown-5m-1793390100",
+   "end": 1793390400,
+   "side": "Down",
+   "ask": 0.43,
+   "cost_per_share": 0.4572,
+   "fair": 0.575,
+   "edge": 0.1179,
+   "shares": 10.3466,
+   "cost": 4.73,
+   "strike": 76790.5,
+   "price": 76775.15,
+   "balance": 42.6065
+  }
+ }
 }
