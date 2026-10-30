@@ -1,31 +1,3 @@
-[push] pass 12:26:10 trades ? hist 0 sent None
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:26:40 trades ? hist 0 sent None
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:27:10 trades ? hist 0 sent None
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:27:41 trades 1 hist 1 sent 1
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:28:12 trades 1 hist 1 sent 1
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:28:42 trades 1 hist 1 sent 1
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:29:12 trades 1 hist 1 sent 1
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:29:42 trades 1 hist 1 sent 1
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:30:13 trades 1 hist 1 sent 1
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:30:44 trades 2 hist 2 sent 2
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:31:14 trades 2 hist 2 sent 2
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:31:45 trades 2 hist 2 sent 2
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:32:15 trades 2 hist 2 sent 2
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
-[push] pass 12:32:45 trades 2 hist 2 sent 2
-[push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
 [push] pass 12:33:16 trades 2 hist 2 sent 2
 [push] err counters TypeError("unsupported operand type(s) for *: 'NoneType' and 'int'")
 [push] pass 12:33:46 trades 2 hist 2 sent 2
@@ -298,3 +270,31 @@
 [push] pass 14:50:28 trades 32 hist 32 sent 32
 [push] pass 14:50:59 trades 33 hist 33 sent 33
 [push] pass 14:51:30 trades 33 hist 33 sent 33
+[push] pass 14:52:01 trades 33 hist 33 sent 33
+[push] pass 14:52:32 trades 34 hist 34 sent 34
+[push] pass 14:53:02 trades 34 hist 34 sent 34
+[push] pass 14:53:33 trades 34 hist 34 sent 34
+[push] pass 14:54:03 trades 34 hist 34 sent 34
+[push] pass 14:54:33 trades 34 hist 34 sent 34
+[push] pass 14:55:04 trades 34 hist 34 sent 34
+[push] pass 14:55:40 trades 35 hist 35 sent 35
+[push] pass 14:56:14 trades 36 hist 36 sent 36
+[push] pass 14:56:44 trades 36 hist 36 sent 36
+[push] pass 14:57:14 trades 36 hist 36 sent 36
+[push] pass 14:57:45 trades 37 hist 37 sent 37
+[push] pass 14:58:15 trades 37 hist 37 sent 37
+[push] pass 14:58:45 trades 37 hist 37 sent 37
+[push] pass 14:59:16 trades 37 hist 37 sent 37
+[push] pass 14:59:47 trades 37 hist 37 sent 37
+[push] pass 15:00:19 trades 37 hist 37 sent 37
+[push] pass 15:00:50 trades 37 hist 37 sent 37
+[push] pass 15:01:21 trades 37 hist 37 sent 37
+[push] pass 15:01:51 trades 37 hist 37 sent 37
+[push] pass 15:02:22 trades 37 hist 37 sent 37
+[push] pass 15:02:52 trades 37 hist 37 sent 37
+[push] pass 15:03:23 trades 37 hist 37 sent 37
+[push] pass 15:04:13 trades 37 hist 37 sent 37
+[push] pass 15:04:45 trades 37 hist 37 sent 37
+[push] pass 15:05:16 trades 38 hist 38 sent 38
+[push] pass 15:05:47 trades 39 hist 39 sent 39
+[push] pass 15:06:18 trades 39 hist 39 sent 39
