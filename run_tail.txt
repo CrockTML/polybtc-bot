@@ -1,75 +1,75 @@
-17:13:11 btc-updown-5m-1793380200 coinbase 77113 vs 77089 left=109s fairUp=0.697 Up=0.7 Down=0.31 bal=57.79
-17:13:16 btc-updown-5m-1793380200 coinbase 77099 vs 77089 left=103s fairUp=0.587 Up=0.68 Down=0.33 bal=57.79
-17:13:22 btc-updown-5m-1793380200 coinbase 77088 vs 77089 left=98s fairUp=0.489 Up=0.57 Down=0.46 bal=57.79
-17:13:27 btc-updown-5m-1793380200 coinbase 77086 vs 77089 left=93s fairUp=0.476 Up=0.52 Down=0.49 bal=57.79
-17:13:32 btc-updown-5m-1793380200 coinbase 77082 vs 77089 left=88s fairUp=0.440 Up=0.56 Down=0.45 bal=57.79
-17:13:37 btc-updown-5m-1793380200 coinbase 77071 vs 77089 left=82s fairUp=0.329 Up=0.6 Down=0.42 bal=57.79
-17:13:43 btc-updown-5m-1793380200 coinbase 77100 vs 77089 left=77s fairUp=0.611 Up=0.63 Down=0.38 bal=57.79
-17:13:48 btc-updown-5m-1793380200 coinbase 77093 vs 77089 left=72s fairUp=0.550 Up=0.69 Down=0.32 bal=57.79
-17:13:53 btc-updown-5m-1793380200 coinbase 77107 vs 77089 left=66s fairUp=0.692 Up=0.72 Down=0.29 bal=57.79
-17:13:59 btc-updown-5m-1793380200 coinbase 77107 vs 77089 left=61s fairUp=0.700 Up=0.8 Down=0.21 bal=57.79
-17:14:04 btc-updown-5m-1793380200 coinbase 77098 vs 77089 left=56s fairUp=0.603 Up=0.83 Down=0.18 bal=57.79
-17:14:09 btc-updown-5m-1793380200 coinbase 77098 vs 77089 left=50s fairUp=0.610 Up=0.84 Down=0.16 bal=57.79
-17:14:15 btc-updown-5m-1793380200 coinbase 77088 vs 77089 left=45s fairUp=0.493 Up=0.75 Down=0.25 bal=57.79
-17:14:20 btc-updown-5m-1793380200 coinbase 77090 vs 77089 left=40s fairUp=0.514 Up=0.89 Down=0.11 bal=57.79
-17:14:25 btc-updown-5m-1793380200 coinbase 77103 vs 77089 left=34s fairUp=0.699 Up=0.93 Down=0.07 bal=57.79
-17:14:31 btc-updown-5m-1793380200 coinbase 77106 vs 77089 left=29s fairUp=0.764 Up=0.99 Down=0.02 bal=57.79
-17:14:36 btc-updown-5m-1793380200 coinbase 77100 vs 77089 left=23s fairUp=0.693 Up=0.99 Down=0.02 bal=57.79
-17:14:42 btc-updown-5m-1793380200 coinbase 77100 vs 77089 left=18s fairUp=0.716 Up=None Down=0.01 bal=57.79
-17:14:47 btc-updown-5m-1793380200 coinbase 77119 vs 77089 left=13s fairUp=0.968 Up=None Down=0.01 bal=57.79
-17:14:52 btc-updown-5m-1793380200 coinbase 77101 vs 77089 left=8s fairUp=0.834 Up=None Down=0.01 bal=57.79
-17:14:57 btc-updown-5m-1793380200 coinbase 77101 vs 77089 left=2s fairUp=0.960 Up=None Down=0.01 bal=57.79
-17:15:03 btc-updown-5m-1793380500 coinbase 77115 vs 77122 left=297s fairUp=0.463 Up=0.55 Down=0.45 bal=57.79
-17:15:09 btc-updown-5m-1793380500 coinbase 77111 vs 77122 left=291s fairUp=0.445 Up=0.56 Down=0.45 bal=57.79
-17:15:14 btc-updown-5m-1793380500 coinbase 77110 vs 77122 left=286s fairUp=0.439 Up=0.56 Down=0.45 bal=57.79
-17:15:19 btc-updown-5m-1793380500 coinbase 77105 vs 77122 left=280s fairUp=0.410 Up=0.52 Down=0.49 bal=57.79
-ENTER Down btc-updown-5m-1793380500 ask=0.5 fair=0.611 edge=+0.083 $5.78 bal=52.01
-17:15:25 btc-updown-5m-1793380500 coinbase 77101 vs 77122 left=275s fairUp=0.389 Up=0.51 Down=0.5 bal=52.01
-17:15:30 btc-updown-5m-1793380500 coinbase 77091 vs 77122 left=270s fairUp=0.339 Up=0.49 Down=0.52 bal=52.01
-17:15:35 btc-updown-5m-1793380500 coinbase 77096 vs 77122 left=264s fairUp=0.360 Up=0.48 Down=0.53 bal=52.01
-17:15:41 btc-updown-5m-1793380500 coinbase 77101 vs 77122 left=259s fairUp=0.388 Up=0.58 Down=0.42 bal=52.01
-17:15:46 btc-updown-5m-1793380500 coinbase 77122 vs 77122 left=254s fairUp=0.500 Up=0.6 Down=0.41 bal=52.01
-17:15:51 btc-updown-5m-1793380500 coinbase 77122 vs 77122 left=248s fairUp=0.500 Up=0.58 Down=0.44 bal=52.01
-17:15:57 btc-updown-5m-1793380500 coinbase 77117 vs 77122 left=243s fairUp=0.474 Up=0.56 Down=0.45 bal=52.01
-17:16:02 btc-updown-5m-1793380500 coinbase 77109 vs 77122 left=238s fairUp=0.424 Up=0.55 Down=0.46 bal=52.01
-17:16:07 btc-updown-5m-1793380500 coinbase 77113 vs 77122 left=233s fairUp=0.448 Up=0.54 Down=0.47 bal=52.01
-17:16:13 btc-updown-5m-1793380500 coinbase 77110 vs 77122 left=227s fairUp=0.427 Up=0.55 Down=0.46 bal=52.01
-17:16:18 btc-updown-5m-1793380500 coinbase 77110 vs 77122 left=222s fairUp=0.426 Up=0.53 Down=0.48 bal=52.01
-17:16:23 btc-updown-5m-1793380500 coinbase 77100 vs 77122 left=217s fairUp=0.370 Up=0.48 Down=0.53 bal=52.01
-17:16:28 btc-updown-5m-1793380500 coinbase 77110 vs 77122 left=211s fairUp=0.430 Up=0.55 Down=0.46 bal=52.01
-17:16:34 btc-updown-5m-1793380500 coinbase 77127 vs 77122 left=206s fairUp=0.531 Up=0.62 Down=0.39 bal=52.01
-17:16:39 btc-updown-5m-1793380500 coinbase 77113 vs 77122 left=201s fairUp=0.444 Up=0.53 Down=0.48 bal=52.01
-17:16:44 btc-updown-5m-1793380500 coinbase 77095 vs 77122 left=195s fairUp=0.335 Up=0.49 Down=0.52 bal=52.01
-17:16:50 btc-updown-5m-1793380500 coinbase 77095 vs 77122 left=190s fairUp=0.333 Up=0.49 Down=0.52 bal=52.01
-17:16:55 btc-updown-5m-1793380500 coinbase 77104 vs 77122 left=185s fairUp=0.384 Up=0.52 Down=0.49 bal=52.01
-17:17:00 btc-updown-5m-1793380500 coinbase 77105 vs 77122 left=179s fairUp=0.388 Up=0.53 Down=0.48 bal=52.01
-17:17:06 btc-updown-5m-1793380500 coinbase 77141 vs 77122 left=174s fairUp=0.624 Up=0.74 Down=0.28 bal=52.01
-17:17:11 btc-updown-5m-1793380500 coinbase 77146 vs 77122 left=169s fairUp=0.661 Up=0.73 Down=0.33 bal=52.01
-17:17:16 btc-updown-5m-1793380500 coinbase 77125 vs 77122 left=163s fairUp=0.521 Up=0.63 Down=0.38 bal=52.01
-17:17:22 btc-updown-5m-1793380500 coinbase 77110 vs 77122 left=158s fairUp=0.415 Up=0.6 Down=0.41 bal=52.01
-17:17:27 btc-updown-5m-1793380500 coinbase 77123 vs 77122 left=153s fairUp=0.507 Up=0.62 Down=0.38 bal=52.01
-17:17:32 btc-updown-5m-1793380500 coinbase 77127 vs 77122 left=147s fairUp=0.539 Up=0.67 Down=0.34 bal=52.01
-17:17:38 btc-updown-5m-1793380500 coinbase 77136 vs 77122 left=142s fairUp=0.605 Up=0.63 Down=0.37 bal=52.01
-SETTLE btc-updown-5m-1793380200 Down winner=Up pnl=-6.42 bal=52.01
-17:17:43 btc-updown-5m-1793380500 coinbase 77116 vs 77122 left=137s fairUp=0.454 Up=0.5 Down=0.51 bal=52.01
-17:17:48 btc-updown-5m-1793380500 coinbase 77085 vs 77122 left=132s fairUp=0.234 Up=0.45 Down=0.59 bal=52.01
-17:17:53 btc-updown-5m-1793380500 coinbase 77086 vs 77122 left=126s fairUp=0.237 Up=0.47 Down=0.54 bal=52.01
-17:17:59 btc-updown-5m-1793380500 coinbase 77115 vs 77122 left=121s fairUp=0.443 Up=0.7 Down=0.31 bal=52.01
-17:18:04 btc-updown-5m-1793380500 coinbase 77148 vs 77122 left=116s fairUp=0.706 Up=0.82 Down=0.19 bal=52.01
-17:18:09 btc-updown-5m-1793380500 coinbase 77147 vs 77122 left=110s fairUp=0.699 Up=0.86 Down=0.16 bal=52.01
-17:18:15 btc-updown-5m-1793380500 coinbase 77122 vs 77122 left=105s fairUp=0.496 Up=0.7 Down=0.32 bal=52.01
-17:18:20 btc-updown-5m-1793380500 coinbase 77130 vs 77122 left=100s fairUp=0.567 Up=0.79 Down=0.22 bal=52.01
-17:18:25 btc-updown-5m-1793380500 coinbase 77137 vs 77122 left=94s fairUp=0.632 Up=0.83 Down=0.18 bal=52.01
-17:18:31 btc-updown-5m-1793380500 coinbase 77159 vs 77122 left=89s fairUp=0.808 Up=0.94 Down=0.07 bal=52.01
-17:18:36 btc-updown-5m-1793380500 coinbase 77169 vs 77122 left=84s fairUp=0.874 Up=0.95 Down=0.06 bal=52.01
-17:18:41 btc-updown-5m-1793380500 coinbase 77183 vs 77122 left=79s fairUp=0.936 Up=0.99 Down=0.02 bal=52.01
-17:18:46 btc-updown-5m-1793380500 coinbase 77183 vs 77122 left=73s fairUp=0.943 Up=0.99 Down=0.02 bal=52.01
-17:18:52 btc-updown-5m-1793380500 coinbase 77166 vs 77122 left=68s fairUp=0.882 Up=0.98 Down=0.03 bal=52.01
-17:18:57 btc-updown-5m-1793380500 coinbase 77155 vs 77122 left=63s fairUp=0.823 Up=0.92 Down=0.09 bal=52.01
-17:19:02 btc-updown-5m-1793380500 coinbase 77126 vs 77122 left=57s fairUp=0.550 Up=0.98 Down=0.03 bal=52.01
-17:19:08 btc-updown-5m-1793380500 coinbase 77150 vs 77122 left=52s fairUp=0.803 Up=0.99 Down=0.02 bal=52.01
-17:19:13 btc-updown-5m-1793380500 coinbase 77141 vs 77122 left=47s fairUp=0.732 Up=0.97 Down=0.03 bal=52.01
-17:19:18 btc-updown-5m-1793380500 coinbase 77125 vs 77122 left=42s fairUp=0.545 Up=0.98 Down=0.03 bal=52.01
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+17:29:28 btc-updown-5m-1793381100 coinbase 77173 vs 77196 left=32s fairUp=0.171 Up=None Down=0.01 bal=52.01
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
+error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
 error: HTTP Error 403: Forbidden
