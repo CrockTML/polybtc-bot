@@ -1,4 +1,4 @@
-pass 2026-10-30T11:57:21Z trades 127 sent 127 hist 127
+pass 2026-10-30T12:12:29Z trades 135 sent 135 hist 135
 11:12:45 set a04 HTTP 429 {"error":"Too many requests. Try again in 9.99999128s"}
 11:12:48 set a04 HTTP 429 {"error":"Too many requests. Try again in 6.99999416s"}
 11:12:54 set a04 HTTP 429 {"error":"Too many requests. Try again in 999.99318ms"}
