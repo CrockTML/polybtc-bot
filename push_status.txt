@@ -1,12 +1,5 @@
-pass 2026-10-30T18:11:06Z trades 70 sent 70 hist 70
-14:35:16 set price TimeoutError('The read operation timed out')
-14:35:28 set price TimeoutError('The read operation timed out')
-14:35:40 set price TimeoutError('The read operation timed out')
-14:39:12 set tptr TimeoutError('The read operation timed out')
-14:39:24 set tptr TimeoutError('The read operation timed out')
-14:39:36 set tptr TimeoutError('The read operation timed out')
-14:43:15 set tptr TimeoutError('The read operation timed out')
-14:43:27 set tptr TimeoutError('The read operation timed out')
-15:04:11 set pptr URLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))
-15:10:40 set upd TimeoutError('The read operation timed out')
-15:14:56 set upd URLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))
+pass 2026-10-30T18:26:08Z trades 72 sent 72 hist 72
+18:11:32 set a24 HTTP 429 {"error":"Too many requests. Try again in 8.99999024s"}
+18:11:35 set a24 HTTP 429 {"error":"Too many requests. Try again in 5.99999393s"}
+18:11:48 set a09 HTTP 429 {"error":"Too many requests. Try again in 8.99999768s"}
+18:11:51 set a09 HTTP 429 {"error":"Too many requests. Try again in 5.99999558s"}
