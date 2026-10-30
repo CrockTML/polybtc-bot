@@ -1,0 +1,45 @@
+name: paper-bot
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+    - cron: "*/30 * * * *"   # backup: queues behind an active run, picks up if a shift died
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: paper-bot
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 358
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Run paper bot (~5h50m)
+        env:
+          ABACUS_KEYS: ${{ secrets.ABACUS_KEYS }}
+        run: |
+          python3 polybtc.py dashboard > dash.log 2>&1 &
+          sleep 3
+          python3 -u push.py > push.log 2>&1 &
+          ( while true; do sleep 900; ./commit_state.sh || true; done ) &
+          END=$(( $(date +%s) + 350*60 ))
+          # restart the bot if it crashes or hangs (no log output for 3 min)
+          while [ $(date +%s) -lt $END ]; do
+            LEFT=$(( (END - $(date +%s)) / 60 ))
+            [ $LEFT -lt 1 ] && break
+            python3 -u polybtc.py paper --minutes $LEFT > run.log 2>&1 &
+            P=$!
+            while kill -0 $P 2>/dev/null && [ $(date +%s) -lt $END ]; do
+              sleep 30
+              [ $(( $(date +%s) - $(stat -c %Y run.log) )) -gt 180 ] && { echo "hang, restarting"; kill $P; sleep 2; kill -9 $P 2>/dev/null; }
+            done
+            kill $P 2>/dev/null; wait $P 2>/dev/null || true
+          done
+          tail -n 20 run.log || true
+      - name: Save state
+        if: always()
+        run: ./commit_state.sh
