@@ -9,7 +9,7 @@ Usage:
   python3 polybtc.py risk                  summarize the log
 """
 import json, math, os, sys, time, urllib.request, statistics, argparse
-import socket; socket.setdefaulttimeout(10)
+import socket, threading; socket.setdefaulttimeout(10)
 
 GAMMA = "https://gamma-api.polymarket.com"
 CLOB = "https://clob.polymarket.com"
@@ -22,12 +22,14 @@ STATE = os.path.join(HERE, "state.json")
 
 CFG = dict(
     window=300,          # seconds; 5m is the shortest BTC series on Polymarket
-    edge_min=0.04,       # 4 points after fees/slippage
-    max_price=0.65,
-    edge_max=0.15,       # 2026-10-30 review: edges >15pts were model errors (won 33%, -43% ROI)
-    min_fair=0.55,       # 2026-10-30 review: underdog bets (fair<0.55) won 25%, -30% ROI
+    # 2026-10-30 run 3: run 2 won 47.6% at 56.9c avg cost (model said 65%). Model fixed (full vol,
+    # Chainlink stream = settlement source); old edge_max/min_fair filters dropped.
+    edge_min=0.08,       # 8 points after fees/slippage
+    max_price=0.55,      # never pay more than 55c
+    min_dist_sigma=0.5,  # BTC must be >=0.5 sigma of the remaining move away from the strike
+    cl_max_age=30,       # skip if latest Chainlink tick is older than this (no fallback)
     start_balance=100.0,
-    stake_frac=0.10,     # 10% of current balance
+    stake_frac=0.025,    # 2.5% of current balance
     stake_fixed=None,    # set a dollar amount to override the fraction
     min_order=1.0,       # Polymarket minimum order (~$1)
     fee_rate=0.07,       # from Gamma feeSchedule (taker): fee/share = rate*p*(1-p)
@@ -36,8 +38,6 @@ CFG = dict(
     min_secs_left=20,    # don't enter in the last seconds
     min_secs_in=20,      # skip the first seconds while the strike settles
     stale_secs=60,       # skip trading if spot hasn't changed for this long
-    suspicious_gap=0.25, # fair - ask above this is suspicious
-    confident_move=0.001,# ...unless price has really moved >=0.1% from strike
 )
 
 def get(url, data=None, timeout=8):
@@ -51,6 +51,40 @@ def log(path, rec):
         f.write(json.dumps(rec) + "\n")
 
 # ---------------- Scout ----------------
+RTDS = "wss://ws-live-data.polymarket.com"
+class CLFeed:
+    """Chainlink BTC/USD Data Streams via Polymarket's live-data socket (the price Polymarket settles on)."""
+    def __init__(self):
+        self.pts = {}; self.last = None  # sec -> price; (sec, price)
+        threading.Thread(target=self.run, daemon=True).start()
+    def add(self, ts_ms, v):
+        t = int(ts_ms) // 1000; self.pts[t] = float(v)
+        if not self.last or t >= self.last[0]: self.last = (t, float(v))
+        if len(self.pts) > 4000:
+            for k in sorted(self.pts)[:-3600]: del self.pts[k]
+    def run(self):
+        import websocket
+        while True:
+            try:
+                ws = websocket.create_connection(RTDS, timeout=15)
+                ws.send(json.dumps({"action": "subscribe", "subscriptions": [{"topic": "crypto_prices_chainlink",
+                        "type": "*", "filters": '{"symbol":"btc/usd"}'}]}))
+                while True:
+                    m = ws.recv()
+                    if not m or not m.startswith("{"): continue
+                    p = json.loads(m).get("payload") or {}
+                    if "data" in p:
+                        for d in p["data"]: self.add(d["timestamp"], d["value"])
+                    elif "value" in p: self.add(p["timestamp"], p["value"])
+            except Exception as e:
+                print("chainlink feed error:", e, flush=True); time.sleep(3)
+    def price(self):
+        return self.last if self.last else (None, None)
+    def at(self, t):
+        for d in (0, 1, -1, 2):
+            if t + d in self.pts: return self.pts[t + d]
+        return None
+
 def chainlink_price():
     try:
         r = get(RPC, json.dumps({"jsonrpc": "2.0", "id": 1, "method": "eth_call",
@@ -94,31 +128,34 @@ def minute_open(ts):
     return None
 
 class Scout:
-    def __init__(self):
-        self.hist = []  # (t, price)
-        self.last_change = None; self.last_ok = None
+    def __init__(self, feed):
+        self.feed = feed; self.last_change = None; self.lastp = None
     def tick(self):
-        p, src = spot_price()
-        if p:
-            now = time.time()
-            if not self.hist or p != self.hist[-1][1] or self.last_change is None: self.last_change = now
-            self.last_ok = now
-            self.hist.append((now, p)); self.hist = self.hist[-720:]
-        return p, src
+        t, p = self.feed.price()
+        if p and p != self.lastp: self.last_change = time.time(); self.lastp = p
+        return p, "chainlink"
+    def age(self):
+        t, p = self.feed.price()
+        return (time.time() - t) if t else None
     def stale(self):
-        now = time.time()
-        if self.last_ok is None or now - self.last_ok > 30: return "data_stale"
-        if now - self.last_change > CFG["stale_secs"]: return "price_frozen"
+        a = self.age()
+        if a is None or a > CFG["cl_max_age"]: return "chainlink_stale"
+        if self.last_change and time.time() - self.last_change > CFG["stale_secs"]: return "price_frozen"
         return None
+    @property
+    def hist(self):
+        now = int(time.time()); ks = [k for k in sorted(self.feed.pts) if k > now - 3600]
+        return [(k, self.feed.pts[k]) for k in ks]
     def vol_per_sec(self):
         h = self.hist
         if len(h) < 12: return 0.6 / math.sqrt(365*86400)  # ~60% annualized default
         rets = [math.log(h[i][1]/h[i-1][1]) / math.sqrt(max(h[i][0]-h[i-1][0], 1)) for i in range(1, len(h))]
         return max(statistics.pstdev(rets), 1e-6)
+    def sigma_left(self, secs_left):
+        return self.vol_per_sec() * math.sqrt(max(secs_left, 1))
     def fair_up(self, price, strike, secs_left, window):
-        """P(TWAP over window >= strike). Elapsed part is approximated by the
-        current price; remaining TWAP variance is sigma^2*T/3."""
-        s = self.vol_per_sec() * math.sqrt(max(secs_left, 1) / 3.0)
+        """P(Chainlink price at window end >= strike), driftless lognormal, full remaining vol."""
+        s = self.sigma_left(secs_left)
         z = math.log(price / strike) / s
         return 0.5 * (1 + math.erf(z / math.sqrt(2)))
 
@@ -184,7 +221,7 @@ def settle(state):
     save_state(state)
 
 def paper(minutes):
-    sc = Scout(); state = load_state(); w = CFG["window"]
+    feed = CLFeed(); sc = Scout(feed); state = load_state(); w = CFG["window"]
     strikes = {}; stop = time.time() + minutes*60 if minutes else None
     print(f"Paper mode. Balance ${state['balance']:.2f}")
     while not stop or time.time() < stop:
@@ -198,15 +235,16 @@ def paper(minutes):
             # window start isn't published in the first seconds, so retry until it is; never
             # overwrite it with the current price.
             if strikes.get(m["slug"]) is None:
-                strikes = {m["slug"]: minute_open(m["start"])}
+                strikes = {m["slug"]: feed.at(m["start"])}  # Chainlink price at window open = price to beat
             strike = strikes[m["slug"]]
             strike_ok = strike is not None
             if not strike_ok: strike = price  # display only; trading blocked below
             left = m["end"] - time.time()
             fu = sc.fair_up(price, strike, left, w)
-            cl, cl_upd = chainlink_price()
+            cl_age = sc.age(); sig = sc.sigma_left(left); dist = abs(math.log(price/strike)) / sig
             rec = dict(ts=int(time.time()), slug=m["slug"], src=src, price=price, strike=strike,
-                       chainlink=cl, chainlink_age=(int(time.time())-cl_upd) if cl_upd else None,
+                       chainlink=price, chainlink_age=round(cl_age, 1) if cl_age is not None else None,
+                       dist_sigma=round(dist, 3),
                        secs_left=round(left), fair_up=round(fu, 4), balance=state["balance"])
             for side, fair in (("Up", fu), ("Down", 1-fu)):
                 ask, sz = best_ask(m["tokens"][side])
@@ -221,19 +259,16 @@ def paper(minutes):
                 elif w - left < CFG["min_secs_in"]: reason = "too_early"
                 elif ask > CFG["max_price"]: reason = "ask_above_cap"
                 elif edge < CFG["edge_min"]: reason = "edge_too_small"
-                elif edge > CFG["edge_max"]: reason = "edge_too_big"
-                elif fair < CFG["min_fair"]: reason = "fair_too_low"
                 elif not strike_ok: reason = "no_strike"
                 elif sc.stale(): reason = sc.stale()
-                elif fair - ask > CFG["suspicious_gap"] and abs(math.log(price/strike)) < CFG["confident_move"]:
-                    reason = "suspicious_gap"
+                elif dist < CFG["min_dist_sigma"]: reason = "too_close_to_strike"
                 if reason is None:
                     stake = stake_for(state["balance"])
                     shares = round(stake / cost, 4)
                     state["balance"] = round(state["balance"] - stake, 4)
                     pos = dict(type="entry", ts=int(time.time()), slug=m["slug"], end=m["end"], side=side,
                                ask=ask, cost_per_share=round(cost, 4), fair=round(fair, 4), edge=round(edge, 4),
-                               shares=shares, cost=stake, strike=strike, price=price, balance=state["balance"])
+                               shares=shares, cost=stake, strike=strike, price=price, dist_sigma=round(dist, 3), balance=state["balance"])
                     state["open"][m["slug"]] = pos; log(TRADES, pos); save_state(state)
                     print(f"ENTER {side} {m['slug']} ask={ask} fair={fair:.3f} edge={edge:+.3f} ${stake} bal={state['balance']:.2f}")
                     rec[side]["action"] = "ENTER"

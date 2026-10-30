@@ -4,6 +4,7 @@ import json,os,sys,time,urllib.request,urllib.error
 import socket; socket.setdefaulttimeout(10)
 HERE=os.path.dirname(os.path.abspath(__file__))
 NS="polybtc-crocker-r2x7";M0=1793300000//60
+OFF=85  # run 3 (2026-10-30): trade history keys continue after run 2's 85 records (h0000-h0084 are write-once)
 RAW=os.environ.get("ABACUS_KEYS","").strip()
 if not RAW: print("ABACUS_KEYS not set; push disabled",flush=True); sys.exit(0)
 K=json.loads(RAW)
@@ -38,7 +39,8 @@ def enc(t):
   return ((int(t["ts"]//60)-M0)*2**26+kind*2**24+round(t.get("price",0)),
           (0 if t["side"]=="Up" else 1)*2**21+round(amt*100)+100000+(int(t["ts"])%60)*2**22)
 def hist(L):
-  for i,t in enumerate(L):
+  for j,t in enumerate(L):
+    i=OFF+j
     if i in HD: continue
     a,b=enc(t)
     try: mk(f"h{i:04d}",a);mk(f"g{i:04d}",b)
@@ -59,14 +61,14 @@ while True:
       global sent
       start=max(0,len(L)-30) if sent is None else sent
       for i in range(start,len(L)):
-        a,b=enc(L[i]);put(f"t{i%30:02d}",a);put(f"a{i%30:02d}",b);sent=i+1
-      put("tptr",len(L),force=True)
+        a,b=enc(L[i]);put(f"t{(OFF+i)%30:02d}",a);put(f"a{(OFF+i)%30:02d}",b);sent=i+1
+      put("tptr",OFF+len(L),force=True)
     step("ring",ring)
     step("hist",lambda:hist(L))
     def selfcheck():
       global lag,sent
-      r=getv("tptr")
-      if r<len(L) or len(HD)<len(L):
+      r=getv("tptr")-OFF
+      if r<len(L) or len(HD)<OFF+len(L):
         lag+=1
         if lag>=2:
           print(f"!!! DASHBOARD LAG: tptr={r} hist={len(HD)} trades={len(L)} -> catching up",flush=True)

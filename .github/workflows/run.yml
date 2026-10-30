@@ -18,6 +18,7 @@ jobs:
         with: { ref: main }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
+      - run: pip install websocket-client
       - name: Run paper bot (~5h50m)
         env:
           ABACUS_KEYS: ${{ secrets.ABACUS_KEYS }}
