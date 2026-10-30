@@ -24,7 +24,9 @@ CFG = dict(
     window=300,          # seconds; 5m is the shortest BTC series on Polymarket
     edge_min=0.04,       # 4 points after fees/slippage
     max_price=0.65,
-    start_balance=25.0,
+    edge_max=0.15,       # 2026-10-30 review: edges >15pts were model errors (won 33%, -43% ROI)
+    min_fair=0.55,       # 2026-10-30 review: underdog bets (fair<0.55) won 25%, -30% ROI
+    start_balance=100.0,
     stake_frac=0.10,     # 10% of current balance
     stake_fixed=None,    # set a dollar amount to override the fraction
     min_order=1.0,       # Polymarket minimum order (~$1)
@@ -219,6 +221,8 @@ def paper(minutes):
                 elif w - left < CFG["min_secs_in"]: reason = "too_early"
                 elif ask > CFG["max_price"]: reason = "ask_above_cap"
                 elif edge < CFG["edge_min"]: reason = "edge_too_small"
+                elif edge > CFG["edge_max"]: reason = "edge_too_big"
+                elif fair < CFG["min_fair"]: reason = "fair_too_low"
                 elif not strike_ok: reason = "no_strike"
                 elif sc.stale(): reason = sc.stale()
                 elif fair - ask > CFG["suspicious_gap"] and abs(math.log(price/strike)) < CFG["confident_move"]:

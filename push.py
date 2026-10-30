@@ -3,7 +3,7 @@
 import json,os,sys,time,urllib.request,urllib.error
 import socket; socket.setdefaulttimeout(10)
 HERE=os.path.dirname(os.path.abspath(__file__))
-NS="polybtc-crocker-9f3k";M0=1793300000//60
+NS="polybtc-crocker-r2x7";M0=1793300000//60
 RAW=os.environ.get("ABACUS_KEYS","").strip()
 if not RAW: print("ABACUS_KEYS not set; push disabled",flush=True); sys.exit(0)
 K=json.loads(RAW)
