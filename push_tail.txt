@@ -1,32 +1,3 @@
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=96 -> catching up
-[push] pass 10:32:14 trades 96 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=96 -> catching up
-[push] pass 10:32:50 trades 96 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=96 -> catching up
-[push] pass 10:33:26 trades 96 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=96 -> catching up
-[push] pass 10:34:02 trades 96 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=96 -> catching up
-[push] pass 10:34:38 trades 96 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=96 -> catching up
-[push] pass 10:35:13 trades 96 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=97 -> catching up
-[push] pass 10:35:49 trades 97 hist 86
-[push] err ring <HTTPError 429: 'Too Many Requests'>
-[push] hist err 86 <HTTPError 429: 'Too Many Requests'>
-[push] !!! DASHBOARD LAG: tptr=0 hist=86 trades=97 -> catching up
 [push] pass 10:36:25 trades 97 hist 86
 [push] err ring <HTTPError 429: 'Too Many Requests'>
 [push] hist err 86 <HTTPError 429: 'Too Many Requests'>
@@ -298,3 +269,32 @@
 [push] pass 11:26:13 trades 116 hist 116 sent 116
 [push] pass 11:26:44 trades 116 hist 116 sent 116
 [push] pass 11:27:15 trades 116 hist 116 sent 116
+[push] pass 11:27:46 trades 116 hist 116 sent 116
+[push] pass 11:28:17 trades 116 hist 116 sent 116
+[push] pass 11:28:47 trades 116 hist 116 sent 116
+[push] pass 11:29:19 trades 116 hist 116 sent 116
+[push] pass 11:29:49 trades 116 hist 116 sent 116
+[push] pass 11:30:20 trades 116 hist 116 sent 116
+[push] pass 11:30:52 trades 117 hist 117 sent 117
+[push] pass 11:31:25 trades 118 hist 118 sent 118
+[push] pass 11:31:55 trades 118 hist 118 sent 118
+[push] pass 11:32:26 trades 118 hist 118 sent 118
+[push] pass 11:32:57 trades 118 hist 118 sent 118
+[push] pass 11:33:28 trades 118 hist 118 sent 118
+[push] pass 11:33:59 trades 118 hist 118 sent 118
+[push] pass 11:34:30 trades 118 hist 118 sent 118
+[push] pass 11:35:01 trades 118 hist 118 sent 118
+[push] pass 11:35:33 trades 119 hist 119 sent 119
+[push] pass 11:36:04 trades 119 hist 119 sent 119
+[push] pass 11:36:36 trades 120 hist 120 sent 120
+[push] pass 11:37:07 trades 120 hist 120 sent 120
+[push] pass 11:37:38 trades 120 hist 120 sent 120
+[push] pass 11:38:09 trades 120 hist 120 sent 120
+[push] pass 11:38:40 trades 120 hist 120 sent 120
+[push] pass 11:39:11 trades 120 hist 120 sent 120
+[push] pass 11:39:41 trades 120 hist 120 sent 120
+[push] pass 11:40:12 trades 120 hist 120 sent 120
+[push] pass 11:40:44 trades 121 hist 121 sent 121
+[push] pass 11:41:17 trades 122 hist 122 sent 122
+[push] pass 11:41:48 trades 122 hist 122 sent 122
+[push] pass 11:42:19 trades 122 hist 122 sent 122
