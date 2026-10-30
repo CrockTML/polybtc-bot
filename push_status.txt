@@ -1,4 +1,4 @@
-pass 2026-10-30T15:06:18Z trades 39 sent 39 hist 39
+pass 2026-10-30T15:21:14Z trades 42 sent 42 hist 42
 14:35:16 set price TimeoutError('The read operation timed out')
 14:35:28 set price TimeoutError('The read operation timed out')
 14:35:40 set price TimeoutError('The read operation timed out')
@@ -8,3 +8,5 @@ pass 2026-10-30T15:06:18Z trades 39 sent 39 hist 39
 14:43:15 set tptr TimeoutError('The read operation timed out')
 14:43:27 set tptr TimeoutError('The read operation timed out')
 15:04:11 set pptr URLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))
+15:10:40 set upd TimeoutError('The read operation timed out')
+15:14:56 set upd URLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))
