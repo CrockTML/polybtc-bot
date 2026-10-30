@@ -78,7 +78,7 @@ while True:
       global oc,px
       oc=sum(o.get("cost",0) for o in d["open"]);settled=d["settled"];px=(d.get("last") or {}).get("price",0)
       put("cash",round(d["cash"]*100));put("open",round(oc*100));put("pnl",round((d["cash"]+oc-d["start"])*100)+100000)
-      put("settled",settled);put("wins",round(d["win_rate"]*settled));put("price",round(px));put("upd",int(time.time()))
+      put("settled",settled);put("wins",round((d.get("win_rate") or 0)*settled));put("price",round(px));put("upd",int(time.time()))
     px=0;step("counters",counters)
     def chart():
       global pp,lastmin
