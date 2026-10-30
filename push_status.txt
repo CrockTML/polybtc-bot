@@ -1,0 +1,9 @@
+pass 2026-10-30T11:27:15Z trades 116 sent 116 hist 116
+11:12:45 set a04 HTTP 429 {"error":"Too many requests. Try again in 9.99999128s"}
+11:12:48 set a04 HTTP 429 {"error":"Too many requests. Try again in 6.99999416s"}
+11:12:54 set a04 HTTP 429 {"error":"Too many requests. Try again in 999.99318ms"}
+11:13:09 set cash HTTP 429 {"error":"Too many requests. Try again in 8.99999014s"}
+11:13:12 set cash HTTP 429 {"error":"Too many requests. Try again in 5.99999379s"}
+11:13:55 set a19 HTTP 429 {"error":"Too many requests. Try again in 9.99998359s"}
+11:13:58 set a19 HTTP 429 {"error":"Too many requests. Try again in 6.99999392s"}
+11:14:04 set a19 HTTP 429 {"error":"Too many requests. Try again in 999.99287ms"}
