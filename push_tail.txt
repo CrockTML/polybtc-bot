@@ -26,3 +26,33 @@
 [push] pass 18:25:06 trades 72 hist 72 sent 72
 [push] pass 18:25:36 trades 72 hist 72 sent 72
 [push] pass 18:26:08 trades 72 hist 72 sent 72
+[push] err ring RuntimeError('put failed a26')
+[push] pass 18:26:52 trades 72 hist 72 sent 56
+[push] err ring RuntimeError('put failed a11')
+[push] pass 18:27:49 trades 72 hist 72 sent 71
+[push] pass 18:28:21 trades 72 hist 72 sent 72
+[push] pass 18:28:52 trades 72 hist 72 sent 72
+[push] pass 18:29:24 trades 72 hist 72 sent 72
+[push] pass 18:29:54 trades 72 hist 72 sent 72
+[push] pass 18:30:25 trades 72 hist 72 sent 72
+[push] pass 18:30:57 trades 73 hist 73 sent 73
+[push] pass 18:31:29 trades 73 hist 73 sent 73
+[push] pass 18:32:00 trades 73 hist 73 sent 73
+[push] pass 18:32:31 trades 73 hist 73 sent 73
+[push] pass 18:33:04 trades 73 hist 73 sent 73
+[push] pass 18:33:35 trades 73 hist 73 sent 73
+[push] pass 18:34:06 trades 73 hist 73 sent 73
+[push] pass 18:34:37 trades 73 hist 73 sent 73
+[push] pass 18:35:08 trades 73 hist 73 sent 73
+[push] pass 18:35:39 trades 73 hist 73 sent 73
+[push] pass 18:36:10 trades 73 hist 73 sent 73
+[push] pass 18:36:42 trades 73 hist 73 sent 73
+[push] pass 18:37:13 trades 73 hist 73 sent 73
+[push] pass 18:37:44 trades 73 hist 73 sent 73
+[push] pass 18:38:15 trades 73 hist 73 sent 73
+[push] pass 18:38:46 trades 73 hist 73 sent 73
+[push] pass 18:39:17 trades 73 hist 73 sent 73
+[push] pass 18:39:50 trades 74 hist 74 sent 74
+[push] pass 18:40:22 trades 74 hist 74 sent 74
+[push] pass 18:40:53 trades 74 hist 74 sent 74
+[push] pass 18:41:24 trades 74 hist 74 sent 74
