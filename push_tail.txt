@@ -252,3 +252,27 @@
 [push] pass 14:01:58 trades 2 hist 268 sent 2
 [push] pass 14:02:30 trades 2 hist 268 sent 2
 [push] pass 14:03:01 trades 2 hist 268 sent 2
+[push] pass 14:03:32 trades 2 hist 268 sent 2
+[push] pass 14:05:02 trades 2 hist 268 sent 2
+[push] !!! DASHBOARD LAG: tptr=-85 hist=268 trades=2 -> catching up
+[push] pass 14:06:06 trades 2 hist 268 sent 0
+[push] pass 14:06:37 trades 2 hist 268 sent 2
+[push] pass 14:07:08 trades 2 hist 268 sent 2
+[push] pass 14:07:39 trades 2 hist 268 sent 2
+[push] pass 14:08:13 trades 2 hist 268 sent 2
+[push] pass 14:08:44 trades 2 hist 268 sent 2
+[push] err counters RuntimeError('put failed price')
+[push] pass 14:10:48 trades 2 hist 268 sent 2
+[push] pass 14:11:21 trades 2 hist 268 sent 2
+[push] pass 14:11:53 trades 2 hist 268 sent 2
+[push] pass 14:12:25 trades 2 hist 268 sent 2
+[push] pass 14:12:56 trades 2 hist 268 sent 2
+[push] pass 14:13:27 trades 2 hist 268 sent 2
+[push] pass 14:14:02 trades 2 hist 268 sent 2
+[push] pass 14:14:33 trades 2 hist 268 sent 2
+[push] pass 14:15:07 trades 2 hist 268 sent 2
+[push] pass 14:15:38 trades 2 hist 268 sent 2
+[push] pass 14:16:10 trades 2 hist 268 sent 2
+[push] pass 14:16:40 trades 2 hist 268 sent 2
+[push] pass 14:17:14 trades 2 hist 268 sent 2
+[push] pass 14:17:46 trades 2 hist 268 sent 2
