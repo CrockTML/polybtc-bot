@@ -24,9 +24,16 @@ CFG = dict(
     window=300,          # seconds; 5m is the shortest BTC series on Polymarket
     # 2026-10-30 run 3: run 2 won 47.6% at 56.9c avg cost (model said 65%). Model fixed (full vol,
     # Chainlink stream = settlement source); old edge_max/min_fair filters dropped.
-    edge_min=0.08,       # 8 points after fees/slippage
-    max_price=0.55,      # never pay more than 55c
-    min_dist_sigma=0.5,  # BTC must be >=0.5 sigma of the remaining move away from the strike
+    # 2026-10-30 run 3b: calibration over 200 settled windows (10.5k snapshots) showed the market
+    # price is well calibrated and the model is not (1-5c asks won 0.2% vs model 11%). Only
+    # favorites at 70-80c won more often than their price. Model-free favorite rule, same bankroll.
+    prob_shrink=0.0,     # p = ask + shrink*(model_fair - ask); 0 = trust market price only
+    edge_min=-0.05,      # with shrink 0 edge = -(fee+slippage) ~ -2.6c; this just sanity-bounds it
+    min_price=0.70,      # never buy below 70c (long-shots lost money in every bucket)
+    max_price=0.80,      # never pay more than 80c
+    max_secs_left=200,   # enter only in the last 200s of the window
+    stake_max=3.0,       # cap any single bet at $3
+    min_dist_sigma=0.0,  # BTC must be >=0.5 sigma of the remaining move away from the strike
     cl_max_age=30,       # skip if latest Chainlink tick is older than this (no fallback)
     start_balance=100.0,
     stake_frac=0.025,    # 2.5% of current balance
@@ -197,7 +204,7 @@ def save_state(s): json.dump(s, open(STATE, "w"), indent=1)
 
 def stake_for(bal):
     st = CFG["stake_fixed"] or bal * CFG["stake_frac"]
-    st = max(st, CFG["min_order"])
+    st = min(max(st, CFG["min_order"]), CFG.get("stake_max") or st)
     return round(min(st, bal), 2)
 
 def settle(state):
@@ -250,14 +257,17 @@ def paper(minutes):
                 ask, sz = best_ask(m["tokens"][side])
                 if ask is None: continue
                 cost = ask + m["fee"]*ask*(1-ask) + CFG["slippage"]
-                edge = fair - cost
+                p_adj = ask + CFG.get("prob_shrink", 1.0) * (fair - ask)
+                edge = p_adj - cost
                 rec[side] = dict(ask=ask, size=sz, fair=round(fair, 4), edge=round(edge, 4))
                 reason = None
                 if m["slug"] in state["open"]: reason = "position_open"
                 elif state["balance"] < CFG["min_order"]: reason = "bankroll_empty"
                 elif left < CFG["min_secs_left"]: reason = "too_late"
                 elif w - left < CFG["min_secs_in"]: reason = "too_early"
+                elif left > CFG.get("max_secs_left", 1e9): reason = "too_early_in_window"
                 elif ask > CFG["max_price"]: reason = "ask_above_cap"
+                elif ask < CFG.get("min_price", 0): reason = "ask_below_floor"
                 elif edge < CFG["edge_min"]: reason = "edge_too_small"
                 elif not strike_ok: reason = "no_strike"
                 elif sc.stale(): reason = sc.stale()
