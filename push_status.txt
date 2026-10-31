@@ -1,2 +1,5 @@
-pass 2026-10-31T07:42:17Z trades 102 sent 102 hist 196
-04:16:07 set upd URLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))
+pass 2026-10-31T07:57:28Z trades 106 sent 106 hist 196
+07:42:52 set a21 HTTP 429 {"error":"Too many requests. Try again in 9.99999537s"}
+07:42:55 set a21 HTTP 429 {"error":"Too many requests. Try again in 5.99998925s"}
+07:43:03 set a06 HTTP 429 {"error":"Too many requests. Try again in 9.99999344s"}
+07:43:07 set a06 HTTP 429 {"error":"Too many requests. Try again in 5.99998833s"}
