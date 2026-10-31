@@ -1,4 +1,12 @@
-pass 2026-10-31T13:47:59Z trades 2 sent 2 hist 268
+pass 2026-10-31T14:03:01Z trades 2 sent 2 hist 268
 12:56:29 set tptr HTTP 500 {"error":"Failed to verify token. Try again later."}
 12:57:02 set price TimeoutError('The read operation timed out')
 12:57:14 set price TimeoutError('The read operation timed out')
+13:56:14 set price TimeoutError('The read operation timed out')
+13:56:24 set price HTTP 500 {"error":"Failed to verify token. Try again later."}
+13:56:46 set upd HTTP 500 {"error":"Failed to verify token. Try again later."}
+13:56:59 set upd TimeoutError('The read operation timed out')
+13:57:11 set upd TimeoutError('The read operation timed out')
+14:00:14 set tptr TimeoutError('The read operation timed out')
+14:00:26 set tptr TimeoutError('The read operation timed out')
+14:00:38 set tptr TimeoutError('The read operation timed out')
