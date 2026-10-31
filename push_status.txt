@@ -1,4 +1,4 @@
-pass 2026-10-31T20:12:28Z trades 2 sent 2 hist 268
+pass 2026-10-31T20:27:45Z trades 2 sent 2 hist 268
 15:47:14 set tptr TimeoutError('The read operation timed out')
 15:47:26 set tptr TimeoutError('The read operation timed out')
 15:47:58 set price TimeoutError('The read operation timed out')
