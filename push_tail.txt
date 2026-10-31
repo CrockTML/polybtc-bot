@@ -1,12 +1,3 @@
-[push] pass 23:12:30 trades 58 hist 143 sent 58
-[push] pass 23:13:00 trades 58 hist 143 sent 58
-[push] pass 23:13:31 trades 58 hist 143 sent 58
-[push] pass 23:14:02 trades 58 hist 143 sent 58
-[push] pass 23:14:33 trades 59 hist 144 sent 59
-[push] pass 23:15:03 trades 59 hist 144 sent 59
-[push] pass 23:15:34 trades 59 hist 144 sent 59
-[push] pass 23:16:05 trades 59 hist 144 sent 59
-[push] pass 23:16:35 trades 59 hist 144 sent 59
 [push] pass 23:17:06 trades 60 hist 145 sent 60
 [push] pass 23:17:37 trades 60 hist 145 sent 60
 [push] pass 23:18:08 trades 60 hist 145 sent 60
@@ -298,3 +289,12 @@
 [push] pass 01:44:23 trades 108 hist 193 sent 108
 [push] pass 01:44:54 trades 109 hist 194 sent 109
 [push] pass 01:45:25 trades 109 hist 194 sent 109
+[push] pass 01:45:55 trades 109 hist 194 sent 109
+[push] pass 01:46:26 trades 109 hist 194 sent 109
+[push] pass 01:46:57 trades 109 hist 194 sent 109
+[push] pass 01:47:27 trades 109 hist 194 sent 109
+[push] pass 01:47:58 trades 109 hist 194 sent 109
+[push] pass 01:48:28 trades 109 hist 194 sent 109
+[push] pass 01:48:59 trades 109 hist 194 sent 109
+[push] pass 01:49:30 trades 110 hist 195 sent 110
+[push] pass 01:50:01 trades 110 hist 195 sent 110
