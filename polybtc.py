@@ -27,13 +27,16 @@ CFG = dict(
     # 2026-10-30 run 3b: calibration over 200 settled windows (10.5k snapshots) showed the market
     # price is well calibrated and the model is not (1-5c asks won 0.2% vs model 11%). Only
     # favorites at 70-80c won more often than their price. Model-free favorite rule, same bankroll.
-    prob_shrink=0.0,     # p = ask + shrink*(model_fair - ask); 0 = trust market price only
-    edge_min=-0.05,      # with shrink 0 edge = -(fee+slippage) ~ -2.6c; this just sanity-bounds it
-    min_price=0.70,      # never buy below 70c (long-shots lost money in every bucket)
-    max_price=0.80,      # never pay more than 80c
-    max_secs_left=200,   # enter only in the last 200s of the window
+    # 2026-10-31 run 5: run 4 (70-80c favorite, any edge) won 73% but needed ~77% to break even.
+    # Backtest over 317 settled windows (time split 65/35): only late, clear favorites where the
+    # model also agrees after fees held up. Strict filters -> few bets (~5% of windows).
+    prob_shrink=1.0,     # p = ask + shrink*(model_fair - ask); 1 = use model probability
+    edge_min=0.0,        # never enter at a negative modeled edge after fees+slippage
+    min_price=0.60,      # favorite side only
+    max_price=0.95,      # never pay more than 95c
+    max_secs_left=120,   # enter only in the last 120s of the window
     stake_max=3.0,       # cap any single bet at $3
-    min_dist_sigma=0.0,  # BTC must be >=0.5 sigma of the remaining move away from the strike
+    min_dist_sigma=0.3,  # BTC must be >=0.3 sigma of the remaining move away from the strike
     cl_max_age=30,       # skip if latest Chainlink tick is older than this (no fallback)
     start_balance=100.0,
     stake_frac=0.025,    # 2.5% of current balance
