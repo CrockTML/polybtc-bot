@@ -1,4 +1,4 @@
-pass 2026-10-31T10:42:55Z trades 165 sent 165 hist 250
+pass 2026-10-31T10:57:48Z trades 169 sent 169 hist 254
 07:57:54 set a25 HTTP 429 {"error":"Too many requests. Try again in 9.99999359s"}
 07:57:57 set a25 HTTP 429 {"error":"Too many requests. Try again in 6.99999561s"}
 07:58:03 set a25 HTTP 429 {"error":"Too many requests. Try again in 999.99008ms"}
