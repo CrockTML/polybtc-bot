@@ -1,5 +1,30 @@
-[push] err ring RuntimeError('put failed a00')
-[push] pass 01:50:51 trades 111 hist 196 sent 95
-[push] err ring RuntimeError('put failed a15')
-[push] !!! DASHBOARD LAG: tptr=110 hist=196 trades=111 -> catching up
-[push] pass 01:51:40 trades 111 hist 196 sent 81
+[push] pass 01:52:20 trades ? hist 196 sent None
+[push] pass 01:52:50 trades ? hist 196 sent None
+[push] pass 01:53:20 trades ? hist 196 sent None
+[push] pass 01:53:50 trades ? hist 196 sent None
+[push] pass 01:54:21 trades ? hist 196 sent None
+[push] pass 01:54:51 trades ? hist 196 sent None
+[push] pass 01:55:21 trades ? hist 196 sent None
+[push] pass 01:55:51 trades ? hist 196 sent None
+[push] pass 01:56:21 trades ? hist 196 sent None
+[push] pass 01:56:52 trades ? hist 196 sent None
+[push] pass 01:57:22 trades ? hist 196 sent None
+[push] pass 01:57:52 trades 1 hist 196 sent 1
+[push] pass 01:58:23 trades 1 hist 196 sent 1
+[push] pass 01:58:53 trades 1 hist 196 sent 1
+[push] pass 01:59:23 trades 1 hist 196 sent 1
+[push] pass 01:59:53 trades 1 hist 196 sent 1
+[push] pass 02:00:23 trades 1 hist 196 sent 1
+[push] pass 02:00:54 trades 1 hist 196 sent 1
+[push] pass 02:01:24 trades 1 hist 196 sent 1
+[push] pass 02:01:54 trades 1 hist 196 sent 1
+[push] pass 02:02:25 trades 2 hist 196 sent 2
+[push] pass 02:02:55 trades 2 hist 196 sent 2
+[push] pass 02:03:25 trades 3 hist 196 sent 3
+[push] pass 02:03:55 trades 3 hist 196 sent 3
+[push] pass 02:04:26 trades 3 hist 196 sent 3
+[push] pass 02:04:56 trades 3 hist 196 sent 3
+[push] pass 02:05:26 trades 3 hist 196 sent 3
+[push] pass 02:05:56 trades 3 hist 196 sent 3
+[push] pass 02:06:27 trades 3 hist 196 sent 3
+[push] pass 02:06:57 trades 4 hist 196 sent 4
